@@ -1,16 +1,20 @@
 # README Generator
 
-Усовершенствованный генератор README для проектов на GitHub с модульной структурой, поддержкой конфигураций, шаблонов, бейджей и локализацией.
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+![Python Version](https://img.shields.io/badge/python-3.6%2B-blue.svg)
 
-## Возможности
+Инструмент командной строки для автоматической генерации качественного `README.md` для проектов на GitHub.  
+Поддерживает интерактивный режим, конфигурационные файлы, шаблоны, генерацию бейджей и локализацию (RU/EN).
 
-- 📝 **Гибкая настройка секций**: описание, установка, использование, API, лицензия, авторы и другие
-- 🎨 **Поддержка нескольких шаблонов**: Python, Web, универсальный и возможность создания своих
-- 🏷️ **Генерация бейджей**: лицензия, версия Python с использованием shields.io
-- ⚙️ **Сохранение конфигурации**: JSON-файлы для повторного использования настроек
-- 💬 **Интерактивный режим**: пошаговый сбор данных с подсказками
-- 🌍 **Локализация**: поддержка русского и английского языков
-- 🧪 **Тестирование**: покрытие ключевых модулей тестами pytest
+## Цели и возможности
+
+- 📝 **Упрощение создания README**: быстрое заполнение типовых разделов (installation, usage, api, license, authors и др.).
+- 🎛️ **Гибкая структура**: выбор нужных секций и шаблонов под конкретный проект (универсальный, Python, Web, собственные шаблоны).
+- 🌍 **Многоязычность**: генерация README на русском и английском; локализованные шаблоны (`default.md`, `default_ru.md`).
+- 🏷️ **Бейджи shields.io**: лицензия, версия Python, PyPI, загрузки, статус сборки GitHub Actions, покрытие кода.
+- 💾 **Конфигурации в JSON**: сохранение и повторное использование настроек проекта.
+- 💬 **Интерактивный режим**: пошаговый опрос с многострочным вводом там, где нужно.
+- 🧪 **Тестируемость**: модульная архитектура (`generator/*`) и тесты в `tests/`.
 
 ## Установка
 
@@ -28,6 +32,9 @@ pip install -r requirements.txt
 ### Интерактивный режим
 
 ```bash
+readme-gen
+
+# или напрямую модуль
 python -m generator.cli
 ```
 
@@ -75,34 +82,55 @@ python -m generator.cli --title "My Project" --save-config myproject.json
 | `--output FILE` | Имя выходного файла (по умолчанию: README.md) |
 | `--save-config PATH` | Сохранить текущую конфигурацию в файл |
 | `--list-templates` | Показать доступные шаблоны |
+| `--no-interactive` | Отключить интерактивный режим (ошибка, если не хватает данных) |
+| `--python-version` | Версия Python для бейджа (например, `3.8`, `3.9+`) |
 
-## Структура проекта
+## Архитектура и структура проекта
 
+Проект организован как Python‑пакет с модульной архитектурой.
+
+```text
+README_Generator/
+├── README.md                  # Документация проекта
+├── requirements.txt           # Зависимости (pytest, pytest-cov)
+├── setup.py                   # Установочный скрипт (entry point readme-gen)
+├── pyproject.toml             # Современная конфигурация проекта
+├── MANIFEST.in                # Включение шаблонов и лицензии в дистрибутив
+├── LICENSE                    # Лицензия MIT
+├── generator/                 # Основной пакет
+│   ├── __init__.py            # Метаданные пакета и экспорт API
+│   ├── cli.py                 # CLI, аргументы, интерактивный режим, генерация README
+│   ├── config.py              # Загрузка/сохранение/валидация конфигурации
+│   ├── templates.py           # Управление шаблонами README
+│   ├── badges.py              # Генерация бейджей shields.io
+│   ├── sections.py            # Описание секций и сбор данных
+│   └── utils.py               # Ввод/вывод, цвета, работа с файлами
+├── templates/                 # Шаблоны Markdown
+│   ├── default.md             # Универсальный шаблон (EN)
+│   ├── default_ru.md          # Универсальный шаблон (RU)
+│   ├── python.md              # Шаблон для Python‑проектов
+│   └── web.md                 # Шаблон для Web‑проектов
+├── tests/                     # Модульные тесты (unittest/pytest)
+│   ├── test_cli.py
+│   ├── test_config.py
+│   ├── test_templates.py
+│   ├── test_badges.py
+│   ├── test_sections.py
+│   └── test_utils.py
+└── examples/                  # Примеры конфигураций
+    ├── example_config.json
+    ├── simple_config.json
+    └── russian_config.json
 ```
-readme-generator-pro/
-├── README.md                 # Документация
-├── requirements.txt          # Зависимости (pytest)
-├── .gitignore                # Игнорируемые файлы
-├── setup.py                  # Установочный скрипт
-├── generator/                # Основной модуль
-│   ├── __init__.py           # Маркер пакета
-│   ├── cli.py                # Интерфейс командной строки
-│   ├── config.py             # Управление конфигурацией
-│   ├── templates.py          # Загрузка шаблонов
-│   ├── badges.py             # Генерация бейджей
-│   ├── sections.py           # Определение секций
-│   └── utils.py              # Вспомогательные функции
-├── templates/                 # Папка с шаблонами
-│   ├── default.md            # Универсальный шаблон (англ.)
-│   ├── default_ru.md         # Универсальный шаблон (рус.)
-│   └── python.md             # Шаблон для Python проектов
-├── tests/                    # Тесты
-│   ├── __init__.py
-│   ├── test_cli.py           # Тесты CLI
-│   └── test_config.py        # Тесты конфигурации
-└── examples/                  # Примеры
-    └── example_config.json    # Пример конфигурации
-```
+
+Кратко по основным модулям:
+
+- `generator/cli.py`: парсинг аргументов, загрузка/слияние конфигураций, интерактивный режим, генерация и запись `README.md`.
+- `generator/config.py`: `DEFAULT_CONFIG`, загрузка/сохранение JSON, валидация и слияние с дефолтами, путь к конфигам в `~/.config/readme-generator/`.
+- `generator/templates.py`: поиск и загрузка шаблонов (`list_templates`, `get_template`, `save_template`, `validate_template`), fallback‑шаблоны.
+- `generator/badges.py`: класс `BadgeGenerator` и функция `generate_badges` для лицензии, Python, PyPI, скачиваний, статуса билда и покрытия.
+- `generator/sections.py`: многоязычный словарь `SECTIONS`, валидация и интерактивный сбор данных по секциям.
+- `generator/utils.py`: цветной вывод, безопасная запись файлов, валидация имён, поиск файлов пакета, функции ввода.
 
 ## Создание собственных шаблонов
 
@@ -147,28 +175,35 @@ readme-generator-pro/
 
 ```json
 {
-    "title": "My Awesome Project",
-    "description": "This project does amazing things",
-    "lang": "en",
-    "template": "python",
-    "output": "README.md",
-    "sections": ["installation", "usage", "api", "license", "authors"],
-    "section_data": {
-        "installation": "pip install myproject",
-        "usage": "import myproject\nmyproject.run()",
-        "api": "TODO: Add API documentation",
-        "license": "MIT",
-        "authors": "John Doe <john@example.com>"
-    },
-    "python_version": "3.8"
+  "title": "README Generator",
+  "description": "CLI tool that generates professional README files from templates and JSON configuration",
+  "lang": "en",
+  "template": "python",
+  "output": "README.md",
+  "sections": ["installation", "usage", "api", "license", "authors"],
+  "section_data": {
+    "installation": "pip install -r requirements.txt",
+    "usage": "python -m generator.cli --config .readme-config.json",
+    "api": "See generator/cli.py and generator/templates.py for public API",
+    "license": "MIT",
+    "authors": "Ivan Zhutyaev <gitivanzhutyaev@gmail.com>"
+  },
+  "python_version": "3.8",
+  "github_repo": "IvanZhutyaev/README_Generator"
 }
 ```
+
+### Примеры из директории `examples/`
+
+- `examples/example_config.json` — полный пример с PyPI/CI/coverage‑бейджами.
+- `examples/simple_config.json` — минимальная конфигурация.
+- `examples/russian_config.json` — конфигурация на русском языке.
 
 ## Запуск тестов
 
 ```bash
-# Установка pytest
-pip install pytest
+# Установка зависимостей для тестирования
+pip install -r requirements.txt
 
 # Запуск всех тестов
 pytest tests/
@@ -220,7 +255,7 @@ def generate_badges(license_name, config):
 
 ## Лицензия
 
-MIT License. Подробнее см. в файле [LICENSE](LICENSE).
+MIT License. Подробнее см. в файле `LICENSE`.
 
 ## Авторы
 
@@ -232,11 +267,11 @@ MIT License. Подробнее см. в файле [LICENSE](LICENSE).
 
 Мы приветствуем вклад в развитие проекта! Пожалуйста:
 
-1. Форкните репозиторий
-2. Создайте ветку для новой функции (`git checkout -b feature/amazing`)
-3. Зафиксируйте изменения (`git commit -m 'Add amazing feature'`)
-4. Отправьте изменения в форк (`git push origin feature/amazing`)
-5. Откройте Pull Request
+1. Форкните репозиторий `README_Generator`.
+2. Создайте ветку для новой функции (`git checkout -b feature/my-feature`).
+3. Зафиксируйте изменения (`git commit -m "Add my feature"`).
+4. Отправьте изменения в свой форк (`git push origin feature/my-feature`).
+5. Откройте Pull Request в основной репозиторий.
 
 ## Часто задаваемые вопросы
 
