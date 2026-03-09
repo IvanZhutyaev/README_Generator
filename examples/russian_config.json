@@ -1,6 +1,6 @@
 {
-    "title": "Мой Проект",
-    "description": "Описание моего проекта на русском языке",
+    "title": "README Generator",
+    "description": "CLI-утилита для генерации профессиональных README по шаблонам",
     "lang": "ru",
     "template": "default",
     "output": "README.md",
@@ -9,6 +9,6 @@
         "installation": "pip install -r requirements.txt",
         "usage": "python main.py --input file.txt",
         "license": "MIT",
-        "authors": "Иван Петров\nМария Сидорова"
+        "authors": "Иван Жутяев (Ivan Zhutyaev)"
     }
 }

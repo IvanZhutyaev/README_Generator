@@ -1,16 +1,16 @@
 """
-README Generator Pro
-~~~~~~~~~~~~~~~~~~~
+README Generator
+~~~~~~~~~~~~~~~~
 
 Advanced README generator for GitHub projects with template support,
 badges, localization, and configuration management.
 
-:copyright: (c) 2024 by Your Name
+:copyright: (c) 2024 by Ivan Zhutyaev
 :license: MIT, see LICENSE for more details.
 """
 
 __version__ = "0.2.0"
-__author__ = "Your Name"
+__author__ = "Ivan Zhutyaev"
 __license__ = "MIT"
 
 from .cli import main

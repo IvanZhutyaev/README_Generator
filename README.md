@@ -1,4 +1,4 @@
-# README Generator Pro
+# README Generator
 
 Усовершенствованный генератор README для проектов на GitHub с модульной структурой, поддержкой конфигураций, шаблонов, бейджей и локализацией.
 
@@ -16,10 +16,10 @@
 
 ```bash
 # Клонирование репозитория
-git clone https://github.com/username/readme-generator-pro.git
-cd readme-generator-pro
+git clone https://github.com/IvanZhutyaev/README_Generator.git
+cd README_Generator
 
-# Установка зависимостей
+# Установка зависимостей для разработки
 pip install -r requirements.txt
 ```
 
@@ -224,7 +224,9 @@ MIT License. Подробнее см. в файле [LICENSE](LICENSE).
 
 ## Авторы
 
-- Жутяев Иван
+- Иван Жутяев (Ivan Zhutyaev)
+  - Email: gitivanzhutyaev@gmail.com
+  - GitHub: https://github.com/IvanZhutyaev
 
 ## Вклад в проект
 

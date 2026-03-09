@@ -8,12 +8,12 @@ with open("README.md", "r", encoding="utf-8") as fh:
 setup(
     name="readme-generator-pro",
     version="0.2.0",
-    author="Your Name",
-    author_email="your.email@example.com",
+    author="Ivan Zhutyaev",
+    author_email="gitivanzhutyaev@gmail.com",
     description="Advanced README generator for GitHub projects",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/username/readme-generator-pro",
+    url="https://github.com/IvanZhutyaev/README_Generator",
     packages=find_packages(),
     include_package_data=True,
     classifiers=[

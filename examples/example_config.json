@@ -1,6 +1,6 @@
 {
-    "title": "My Awesome Project",
-    "description": "This project does amazing things with Python and machine learning",
+    "title": "README Generator",
+    "description": "CLI tool that generates professional README files from templates and configuration",
     "lang": "en",
     "template": "python",
     "output": "README.md",
@@ -21,13 +21,13 @@
         "testing": "```bash\n# Run all tests\npytest tests/\n\n# Run with coverage\npytest tests/ --cov=myproject --cov-report=html\n```",
         "contributing": "1. Fork the repository\n2. Create a feature branch\n3. Commit your changes\n4. Push to the branch\n5. Open a Pull Request",
         "license": "MIT",
-        "authors": "John Doe <john@example.com>\nJane Smith <jane@example.com>",
+        "authors": "Ivan Zhutyaev <gitivanzhutyaev@gmail.com>",
         "changelog": "## [0.2.0] - 2024-01-15\n### Added\n- New API endpoint\n- Better error handling\n\n## [0.1.0] - 2024-01-01\n### Added\n- Initial release"
     },
     "python_version": "3.8",
-    "pypi_package": "myproject",
+    "pypi_package": "readme-generator-pro",
     "show_downloads": true,
-    "github_repo": "username/myproject",
+    "github_repo": "IvanZhutyaev/README_Generator",
     "branch": "main",
     "coverage": "87%"
 }
