@@ -1,0 +1,14 @@
+{
+    "title": "Мой Проект",
+    "description": "Описание моего проекта на русском языке",
+    "lang": "ru",
+    "template": "default",
+    "output": "README.md",
+    "sections": ["installation", "usage", "license", "authors"],
+    "section_data": {
+        "installation": "pip install -r requirements.txt",
+        "usage": "python main.py --input file.txt",
+        "license": "MIT",
+        "authors": "Иван Петров\nМария Сидорова"
+    }
+}

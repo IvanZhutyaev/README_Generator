@@ -1,0 +1,33 @@
+{
+    "title": "My Awesome Project",
+    "description": "This project does amazing things with Python and machine learning",
+    "lang": "en",
+    "template": "python",
+    "output": "README.md",
+    "sections": [
+        "installation",
+        "usage",
+        "api",
+        "testing",
+        "contributing",
+        "license",
+        "authors",
+        "changelog"
+    ],
+    "section_data": {
+        "installation": "pip install myproject\n\nFor development:\npip install -e .[dev]",
+        "usage": "import myproject\n\n# Initialize\nclient = myproject.Client()\n\n# Use\nresult = client.process(data)\nprint(result)",
+        "api": "## Client Class\n\n### `Client(api_key=None, timeout=30)`\nCreate a new client instance.\n\n- `api_key`: Optional API key for authentication\n- `timeout`: Request timeout in seconds\n\n### `client.process(data)`\nProcess input data.\n\n- `data`: Input data (string, dict, or list)\n- Returns: Processed result",
+        "testing": "```bash\n# Run all tests\npytest tests/\n\n# Run with coverage\npytest tests/ --cov=myproject --cov-report=html\n```",
+        "contributing": "1. Fork the repository\n2. Create a feature branch\n3. Commit your changes\n4. Push to the branch\n5. Open a Pull Request",
+        "license": "MIT",
+        "authors": "John Doe <john@example.com>\nJane Smith <jane@example.com>",
+        "changelog": "## [0.2.0] - 2024-01-15\n### Added\n- New API endpoint\n- Better error handling\n\n## [0.1.0] - 2024-01-01\n### Added\n- Initial release"
+    },
+    "python_version": "3.8",
+    "pypi_package": "myproject",
+    "show_downloads": true,
+    "github_repo": "username/myproject",
+    "branch": "main",
+    "coverage": "87%"
+}

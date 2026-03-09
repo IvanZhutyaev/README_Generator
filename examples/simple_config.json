@@ -1,0 +1,13 @@
+{
+    "title": "Simple Project",
+    "description": "A simple example project",
+    "lang": "en",
+    "template": "default",
+    "output": "README.md",
+    "sections": ["installation", "usage", "license"],
+    "section_data": {
+        "installation": "pip install -r requirements.txt",
+        "usage": "python main.py",
+        "license": "MIT"
+    }
+}

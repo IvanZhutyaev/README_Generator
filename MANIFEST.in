@@ -1,0 +1,4 @@
+include templates/*.md
+include LICENSE
+include README.md
+include requirements.txt
