@@ -1,4 +1,4 @@
-"""Setup script for README Generator"""
+"""Setup script for README Generator Pro."""
 
 from setuptools import setup, find_packages
 
